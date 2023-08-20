@@ -17,5 +17,6 @@ run cmake -DLLVM_INTERFACE=ON -DCMAKE_PREFIX_PATH=$(llvm-config --prefix) ..
 run make -j 5
 run make install
 
+cmd /bin/sh
 
 
