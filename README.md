@@ -10,6 +10,22 @@ But just in case - all dependencies were installed via pacman, so their headers
 must reside in /usr/include and binary files in /usr/lib OR /usr/local/lib.
 Use `find` :)
 
+
+I don't know your exact case of how you are going to use binary - you can copy it 
+along with headers or mount volume:
+
+
+`/Triton/src/libtriton/includes/triton/` - directory with headers
+
+
+`/Triton/build/src/libtriton/` - directory with binaries (libtriton.so, triton.so)
+
+
+You can mount them with -v flag:
+docker run -v hostPath:containerPath triton-llvm-z3:latest
+
+Note: Install shared libraries externally or possibly copy them from container:
+
 ```
 sh-5.1# ldd /Triton/build/src/libtriton/libtriton.so
         linux-vdso.so.1 (0x00007ffee9bca000)
@@ -33,9 +49,3 @@ sh-5.1# ldd /Triton/build/src/libtriton/libtriton.so
         libicudata.so.73 => /usr/lib/libicudata.so.73 (0x00007fafe9d42000)
 ```
 
-I don't know your exact case of how you are going to use binary - you can copy it 
-along with headers or mount volume:
-`/Triton/src/libtriton/includes/triton/` - directory with headers
-`/Triton/build/src/libtriton/` - directory with binaries (libtriton.so, triton.so)
-You can mount them with -v flag:
-docker run -v hostPath:containerPath triton-llvm-z3:latest
