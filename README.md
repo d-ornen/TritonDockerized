@@ -5,7 +5,7 @@ List of all satisfied dependencies:
 3. z3
 4. llvm
 
-Theoretically you don't need any header files except those defined in /usr/lib/triton/.
+Theoretically you don't need any header files except those defined in /Triton/ repo.
 But just in case - all dependencies were installed via pacman, so their headers
 must reside in /usr/include and binary files in /usr/lib OR /usr/local/lib.
 Use `find` :)
